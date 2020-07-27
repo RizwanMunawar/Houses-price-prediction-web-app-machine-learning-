@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<style>
+    form 
+    {
+        margin: auto;
+        background-color:darkslateblue;
+    }
+    @keyframes example 
+    {
+        0%   {background-color:black;}
+        25%  {background-color:darkslateblue;}
+        50%  {background-color:deepskyblue}
+        100% {background-color:black;}
+    }
+    .result
+    {
+        text-align: center;
+        color:white;
+        background-color: black;
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    .header 
+      {
+        padding: 10px;
+        text-align: center;
+        color:white;
+        background-color: black;
+        font-family: 'Times New Roman', Times, serif;
+        animation-name: example;
+        animation-duration: 15s;
+        animation-iteration-count: 100;
+      }
+
+    label
+    {
+        color: aliceblue;
+        font-size: 20px;
+    }
+
+    input
+    {
+        border-radius: 10px;
+        width: 200px;
+        height: 25px;
+    }
+</style>
+
+<head>
+    <title>House Prediction Website</title>
+</head>
+
+<div class= "header">
+    <h2>House Prices Prediction</h2>
+</div>
+
+<form action="{{ url_for('main') }}" method="POST">
+    <br><br><br>
+        <label>Please Enter Average Area Income &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+        </label>
+        <input name="aai" type="number" required>
+        <br><br>
+        <label>Please Enter Avg. Area House Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+        </label>
+        <input name = "aah" type="number" required>
+        <br><br>
+        <label>Please Enter Avg. Area Number of Rooms:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input name= "aan" type="number" required>
+        <br><br>
+        <label>Please Enter Avg. Area Number of Bedrooms</label>
+        <input name = "aanb" type="number" required>
+        <br><br>
+        <label>Please Enter Area Population&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </label>
+        <input name = "ap" type="number" required>
+        <br>
+        <br>
+        <br>
+        <div align = "center">
+        <input type="submit" style="height: 30px;width: 300px;">
+    </div>
+    <br><br>
+    </form>
+
+<div class="result" >
+    <br><br>
+    {% if result %}
+    	{% for variable, value in original_input.items() %}
+    		<b>{{ variable }}</b> : {{ value }}
+    	{% endfor %}
+		<br>
+    	<br> Predicted Amount of House :
+   		<p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+
+</html>
