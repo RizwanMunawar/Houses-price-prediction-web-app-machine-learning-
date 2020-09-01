@@ -1,4 +1,4 @@
-<b>Machine Learning Model Web Based Using Flask Framework<b>
+<b><i>Machine Learning Model Web Based Using Flask Framework</i></b>
 
 Step for Run Code:
 
