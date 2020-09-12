@@ -1,1 +1,1 @@
-web: gunicorn -b :$PORT app:medapp
+web: gunicorn -b :$PORT app:app
