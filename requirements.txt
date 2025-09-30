@@ -18,7 +18,3 @@ sklearn==0.0
 threadpoolctl==2.1.0
 Werkzeug>=3.0.6
 WTForms==2.3.3
-
-
-
-
